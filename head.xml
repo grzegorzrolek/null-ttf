@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE genericSFNTTable [
+<!ELEMENT genericSFNTTable (dataLine+)>
+<!ELEMENT dataLine EMPTY>
+<!ATTLIST genericSFNTTable tag CDATA #REQUIRED
+	size CDATA #IMPLIED
+>
+<!ATTLIST dataLine lineNumber CDATA #REQUIRED
+	offset CDATA #REQUIRED
+	hex CDATA #REQUIRED
+	ascii CDATA #IMPLIED
+	unicode CDATA #IMPLIED
+>
+]>
+
+<!--
+
+	Font header for Null the TrueType font
+	Copyright (c) 2012 Grzegorz Rolek
+
+	Fused with ftxdumperfuser build 248
+	FontToolbox.framework build 55
+
+-->
+
+<genericSFNTTable tag="head" >
+	<dataLine offset="00000000" hex="0001" /> <!-- Table version major; stays as it is. -->
+	<dataLine offset="00000002" hex="0000" /> <!-- Version minor; can't change, but that's cool. -->
+	<dataLine offset="00000004" hex="0000" /> <!-- Font revision major; just make it all null. -->
+	<dataLine offset="00000006" hex="0000" /> <!-- Revision minor... -->
+	<dataLine offset="00000008" hex="0000" /> <!-- Font checksum; here it's null, but still will be calculated on fusion. -->
+	<dataLine offset="0000000A" hex="0000" /> <!-- Checksum continued... -->
+	<dataLine offset="0000000C" hex="5F0F" /> <!-- So called magic number; stays like the spec says. -->
+	<dataLine offset="0000000E" hex="3CF5" /> <!-- Magic number continued... -->
+	<dataLine offset="00000010" hex="0000" /> <!-- Font info flags; see the spec for details, but can be null. -->
+	<dataLine offset="00000012" hex="0010" /> <!-- Units per em; can't be lower than 16, technical error otherwise. -->
+	<dataLine offset="00000014" hex="0000" /> <!-- Date created; make it null. -->
+	<dataLine offset="00000016" hex="0000" /> <!-- Date continued... -->
+	<dataLine offset="00000018" hex="0000" /> <!-- Date still... -->
+	<dataLine offset="0000001A" hex="0000" /> <!-- Date... -->
+	<dataLine offset="0000001C" hex="0000" /> <!-- Date modified; can be null, but will be stamped on fusion anyway. -->
+	<dataLine offset="0000001E" hex="0000" /> <!-- Date continued... -->
+	<dataLine offset="00000020" hex="0000" /> <!-- Date again... -->
+	<dataLine offset="00000022" hex="0000" /> <!-- Date... -->
+	<dataLine offset="00000024" hex="0000" /> <!-- Font's min X coordinate; no glyph data in the font, so can be null. -->
+	<dataLine offset="00000026" hex="0000" /> <!-- Min Y coordinate; still null. -->
+	<dataLine offset="00000028" hex="0000" /> <!-- Max X coordinate... -->
+	<dataLine offset="0000002A" hex="0000" /> <!-- Max Y... -->
+	<dataLine offset="0000002C" hex="0000" /> <!-- Mac Style flags; unset all and have it normal. -->
+	<dataLine offset="0000002E" hex="0000" /> <!-- Lowest readable pixels per em; make it zero. -->
+	<dataLine offset="00000030" hex="0000" /> <!-- Font direction hint; no reason this can't be zero, i.e., bidirectional. -->
+	<dataLine offset="00000032" hex="0000" /> <!-- Glyph location offsets format; zero for short, both zero and short seems cool. -->
+	<dataLine offset="00000034" hex="0000" /> <!-- Glyph data format; another zero for free. -->
+</genericSFNTTable>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE genericSFNTTable [
+<!ELEMENT genericSFNTTable (dataLine+)>
+<!ELEMENT dataLine EMPTY>
+<!ATTLIST genericSFNTTable tag CDATA #REQUIRED
+	size CDATA #IMPLIED
+>
+<!ATTLIST dataLine lineNumber CDATA #REQUIRED
+	offset CDATA #REQUIRED
+	hex CDATA #REQUIRED
+	ascii CDATA #IMPLIED
+	unicode CDATA #IMPLIED
+>
+]>
+
+<!--
+
+	Glyph outlines for Null the TrueType font
+	Copyright (c) 2012 Grzegorz Rolek
+
+	Here's the 'glyf' table with data stream for only one glyph.
+	Glyph definition is glyph description plus glyph data.
+	Description part is required, actual data can be stripped.
+ 
+	Fused with ftxdumperfuser build 248
+	FontToolbox.framework build 55
+
+-->
+
+<genericSFNTTable tag="glyf">
+	<dataLine offset="00000000" hex="0000" /> <!-- Number of contours; zero makes data part disposable. -->
+	<dataLine offset="00000002" hex="0000" /> <!-- Min X coordinate; part of the description. -->
+	<dataLine offset="00000004" hex="0000" /> <!-- Min Y coordinate... -->
+	<dataLine offset="00000006" hex="0000" /> <!-- Max X and... -->
+	<dataLine offset="00000008" hex="0000" /> <!-- Max Y... -->
+</genericSFNTTable>

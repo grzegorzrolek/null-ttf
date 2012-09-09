@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE genericSFNTTable [
+<!ELEMENT genericSFNTTable (dataLine+)>
+<!ELEMENT dataLine EMPTY>
+<!ATTLIST genericSFNTTable tag CDATA #REQUIRED
+	size CDATA #IMPLIED
+>
+<!ATTLIST dataLine lineNumber CDATA #REQUIRED
+	offset CDATA #REQUIRED
+	hex CDATA #REQUIRED
+	ascii CDATA #IMPLIED
+	unicode CDATA #IMPLIED
+>
+]>
+
+<!--
+
+	Name records for Null the TrueType font
+	Copyright (c) 2012 Grzegorz Rolek
+
+	Name records all point to the same offset with same single string at the end.
+	Macintosh platform does not nullify as well as Unicode would,
+	but it's only UTF-16 that would be allowed in string and Mac makes it 8-bit.
+
+	Fused with ftxdumperfuser build 248
+	FontToolbox.framework build 55
+
+-->
+
+<genericSFNTTable tag="name">
+	<dataLine offset="00000000" hex="0000" /> <!-- Table format; zero, cool. -->
+	<dataLine offset="00000002" hex="0005" /> <!-- Number of name records; those five are required, can't change. -->
+	<dataLine offset="00000004" hex="0042" /> <!-- Offset to name strings; nothing to null. -->
+	<dataLine offset="00000006" hex="0001" /> <!-- Platform code for the record: Macintosh -->
+	<dataLine offset="00000008" hex="0000" /> <!-- Platform-specific encoding: MacRoman -->
+	<dataLine offset="0000000A" hex="0000" /> <!-- Language: English -->
+	<dataLine offset="0000000C" hex="0001" /> <!-- Record: Family name -->
+	<dataLine offset="0000000E" hex="0004" /> <!-- Name string length -->
+	<dataLine offset="00000010" hex="0000" /> <!-- Name string offset in strings; all point to the same string. -->
+	<dataLine offset="00000012" hex="0001" /> <!-- Platform: Macintosh... -->
+	<dataLine offset="00000014" hex="0000" /> <!-- Encoding: MacRoman... -->
+	<dataLine offset="00000016" hex="0000" /> <!-- Language: English... -->
+	<dataLine offset="00000018" hex="0002" /> <!-- Font subfamily name record -->
+	<dataLine offset="0000001A" hex="0004" /> <!-- String length... -->
+	<dataLine offset="0000001C" hex="0000" /> <!-- String offset... -->
+	<dataLine offset="0000001E" hex="0001" /> <!-- Macintosh... -->
+	<dataLine offset="00000020" hex="0000" /> <!-- MacRoman... -->
+	<dataLine offset="00000022" hex="0000" /> <!-- English... -->
+	<dataLine offset="00000024" hex="0003" /> <!-- Unique subfamily name record -->
+	<dataLine offset="00000026" hex="0004" /> <!-- Length... -->
+	<dataLine offset="00000028" hex="0000" /> <!-- Offset... -->
+	<dataLine offset="0000002A" hex="0001" /> <!-- Macintosh... -->
+	<dataLine offset="0000002C" hex="0000" /> <!-- MacRoman... -->
+	<dataLine offset="0000002E" hex="0000" /> <!-- English... -->
+	<dataLine offset="00000030" hex="0004" /> <!-- Full name record -->
+	<dataLine offset="00000032" hex="0004" /> <!-- Length... -->
+	<dataLine offset="00000034" hex="0000" /> <!-- Offset... -->
+	<dataLine offset="00000036" hex="0001" /> <!-- Macintosh... -->
+	<dataLine offset="00000038" hex="0000" /> <!-- MacRoman... -->
+	<dataLine offset="0000003A" hex="0000" /> <!-- English... -->
+	<dataLine offset="0000003C" hex="0006" /> <!-- PostScript name record -->
+	<dataLine offset="0000003E" hex="0004" /> <!-- Length... -->
+	<dataLine offset="00000040" hex="0000" /> <!-- Offset... -->
+	<dataLine offset="00000042" hex="4E75" /> <!-- Name strings; that would be Null. -->
+	<dataLine offset="00000044" hex="6C6C" /> <!-- Strings continued... -->
+</genericSFNTTable>

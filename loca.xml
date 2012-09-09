@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE genericSFNTTable [
+<!ELEMENT genericSFNTTable (dataLine+)>
+<!ELEMENT dataLine EMPTY>
+<!ATTLIST genericSFNTTable tag CDATA #REQUIRED
+	size CDATA #IMPLIED
+>
+<!ATTLIST dataLine lineNumber CDATA #REQUIRED
+	offset CDATA #REQUIRED
+	hex CDATA #REQUIRED
+	ascii CDATA #IMPLIED
+	unicode CDATA #IMPLIED
+>
+]>
+
+<!--
+
+	Glyph locations for Null the TrueType font
+	Copyright (c) 2012 Grzegorz Rolek
+
+	Short location format, i.e., two bytes per offset counted in words.
+
+	Fused with ftxdumperfuser build 248
+	FontToolbox.framework build 55
+
+-->
+
+<genericSFNTTable tag="loca">
+	<dataLine offset="00000000" hex="0000" /> <!-- First glyph offset counted in words -->
+	<dataLine offset="00000002" hex="0005" /> <!-- Second glyph offset -->
+	<dataLine offset="00000004" hex="0005" /> <!-- Offset to the end of last glyph; that basically makes it zero length. -->
+</genericSFNTTable>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE genericSFNTTable [
+<!ELEMENT genericSFNTTable (dataLine+)>
+<!ELEMENT dataLine EMPTY>
+<!ATTLIST genericSFNTTable tag CDATA #REQUIRED
+	size CDATA #IMPLIED
+>
+<!ATTLIST dataLine lineNumber CDATA #REQUIRED
+	offset CDATA #REQUIRED
+	hex CDATA #REQUIRED
+	ascii CDATA #IMPLIED
+	unicode CDATA #IMPLIED
+>
+]>
+
+<!--
+
+	PostScript entries for Null the TrueType font
+	Copyright (c) 2012 Grzegorz Rolek
+
+	Format 3 of the 'post' table gives no list of glyph names.
+	This makes it useless for PostScript printers, but also quite short. 
+
+	Fused with ftxdumperfuser build 248
+	FontToolbox.framework build 55
+
+-->
+
+<genericSFNTTable tag="post">
+	<dataLine offset="00000000" hex="0003" /> <!-- Table format major; three makes the table pro forma only. -->
+	<dataLine offset="00000002" hex="0000" /> <!-- Format minor... -->
+	<dataLine offset="00000004" hex="0000" /> <!-- Italic angle; that's some zeros for free. -->
+	<dataLine offset="00000006" hex="0000" /> <!-- Italic angle continued... -->
+	<dataLine offset="00000008" hex="0000" /> <!-- Underline position; make it null. -->
+	<dataLine offset="0000000A" hex="0000" /> <!-- Underline thickness; likewise. -->
+	<dataLine offset="0000000C" hex="0000" /> <!-- Fixed pitch; zero means no and few more null bytes. -->
+	<dataLine offset="0000000E" hex="0000" /> <!-- Fixed pitch continued... -->
+	<dataLine offset="00000000" hex="0000" /> <!-- Min required memory as Type 42; can be null all the way down. -->
+	<dataLine offset="00000012" hex="0000" /> <!-- Memory continued...  -->
+	<dataLine offset="00000014" hex="0000" /> <!-- Max memory as Type 42... -->
+	<dataLine offset="00000016" hex="0000" /> <!-- Memory... -->
+	<dataLine offset="00000018" hex="0000" /> <!-- Min Type 1... -->
+	<dataLine offset="0000001A" hex="0000" /> <!-- Memory... -->
+	<dataLine offset="0000001C" hex="0000" /> <!-- Max Type 1... -->
+	<dataLine offset="0000001E" hex="0000" /> <!-- Memory... -->
+</genericSFNTTable>

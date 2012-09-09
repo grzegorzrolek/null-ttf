@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE genericSFNTTable [
+<!ELEMENT genericSFNTTable (dataLine+)>
+<!ELEMENT dataLine EMPTY>
+<!ATTLIST genericSFNTTable tag CDATA #REQUIRED
+	size CDATA #IMPLIED
+>
+<!ATTLIST dataLine lineNumber CDATA #REQUIRED
+	offset CDATA #REQUIRED
+	hex CDATA #REQUIRED
+	ascii CDATA #IMPLIED
+	unicode CDATA #IMPLIED
+>
+]>
+
+<!--
+
+	Character mapping for Null the TrueType font
+	Copyright (c) 2012 Grzegorz Rolek
+
+	Normally, the 'cmap' subtable format 0 should have 256 single-byte records,
+	but apparently OS X assumes standard mapping and those two are enough.
+	Still, the second shortest table format 6 would have been four bytes longer.
+
+	Fused with ftxdumperfuser build 248
+	FontToolbox.framework build 55
+
+-->
+
+<genericSFNTTable tag="cmap">
+	<dataLine offset="00000000" hex="0000" /> <!-- Table version; can't change, but no problem with that. -->
+	<dataLine offset="00000002" hex="0001" /> <!-- Number of subtables; nothing to change either. -->
+	<dataLine offset="00000004" hex="0000" /> <!-- Platform code for the subtable: Unicode -->
+	<dataLine offset="00000006" hex="0000" /> <!-- Platform encoding: Default; not recommended, but look at all those zeros. -->
+	<dataLine offset="00000008" hex="0000" /> <!-- Offset to the subtable's mapping; stays as it is. -->
+	<dataLine offset="0000000A" hex="000C" /> <!-- Offset continued... -->
+	<dataLine offset="0000000C" hex="0000" /> <!-- Subtable format; see above for details. -->
+	<dataLine offset="0000000E" hex="0008" /> <!-- Subtable length; can't chage that. -->
+	<dataLine offset="00000010" hex="0000" /> <!-- Encoding language; this can be null. -->
+	<dataLine offset="00000012" hex="0000" /> <!-- Two mapping records; make it all go to glyph zero. -->
+</genericSFNTTable>

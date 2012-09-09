@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE genericSFNTTable [
+<!ELEMENT genericSFNTTable (dataLine+)>
+<!ELEMENT dataLine EMPTY>
+<!ATTLIST genericSFNTTable tag CDATA #REQUIRED
+	size CDATA #IMPLIED
+>
+<!ATTLIST dataLine lineNumber CDATA #REQUIRED
+	offset CDATA #REQUIRED
+	hex CDATA #REQUIRED
+	ascii CDATA #IMPLIED
+	unicode CDATA #IMPLIED
+>
+]>
+
+<!--
+
+	Horizontal metrics for Null the TrueType font
+	Copyright (c) 2012 Grzegorz Rolek
+
+	This table basically can't be made any shorter. Four bytes, all null.
+
+	Fused with ftxdumperfuser build 248
+	FontToolbox.framework build 55
+
+-->
+
+<genericSFNTTable tag="hmtx">
+	<dataLine offset="00000000" hex="0000"/> <!-- Sidebearing of the first glyph. -->
+	<dataLine offset="00000002" hex="0000"/> <!-- Sidebearing... -->
+</genericSFNTTable>

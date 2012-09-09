@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE genericSFNTTable [
+<!ELEMENT genericSFNTTable (dataLine+)>
+<!ELEMENT dataLine EMPTY>
+<!ATTLIST genericSFNTTable tag CDATA #REQUIRED
+	size CDATA #IMPLIED
+>
+<!ATTLIST dataLine lineNumber CDATA #REQUIRED
+	offset CDATA #REQUIRED
+	hex CDATA #REQUIRED
+	ascii CDATA #IMPLIED
+	unicode CDATA #IMPLIED
+>
+]>
+
+<!--
+
+	Maximum profile for Null the TrueType font
+	Copyright (c) 2012 Grzegorz Rolek
+
+	This is quite a respectable table, particularly the glyphs number value,
+	e.g., fusion of the 'post' table that enumerate glyphs fails on the value mismatch.
+
+	Fused with ftxdumperfuser build 248
+	FontToolbox.framework build 55
+
+-->
+
+<genericSFNTTable tag="maxp">
+	<dataLine offset="00000000" hex="0001" /> <!-- Table version major, stays like so. -->
+	<dataLine offset="00000002" hex="0000" /> <!-- Version minor... -->
+	<dataLine offset="00000004" hex="0002" /> <!-- Number of glyphs; can't be lied, really. -->
+	<dataLine offset="00000006" hex="0000" /> <!-- Max number of points in non-compound glyph; no glyph data, so null. -->
+	<dataLine offset="00000008" hex="0000" /> <!-- Max number of contours in non-compound glyph; still null. -->
+	<dataLine offset="0000000A" hex="0000" /> <!-- Max number of points in compound glyph; null. -->
+	<dataLine offset="0000000C" hex="0000" /> <!-- Max number of contours in compound glyph; null. -->
+	<dataLine offset="0000000E" hex="0000" /> <!-- Max number of zones; the spec wants 2, but can be set to null. -->
+	<dataLine offset="00000010" hex="0000" /> <!-- Max number of points used in Twilight Zone; legally null. -->
+	<dataLine offset="00000012" hex="0000" /> <!-- Max number of Storage Area locations; null. -->
+	<dataLine offset="00000014" hex="0000" /> <!-- Max number of function definitions; null. -->
+	<dataLine offset="00000016" hex="0000" /> <!-- Max number of instruction definitions; null. -->
+	<dataLine offset="00000018" hex="0000" /> <!-- Max stack depth; null. -->
+	<dataLine offset="0000001A" hex="0000" /> <!-- Max size of glyph instructions; null. -->
+	<dataLine offset="0000001C" hex="0000" /> <!-- Max number of elements in compound glyph; still null. -->
+	<dataLine offset="0000001E" hex="0000" /> <!-- Max level of recursion in compound glyph; null. -->
+</genericSFNTTable>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE genericSFNTTable [
+<!ELEMENT genericSFNTTable (dataLine+)>
+<!ELEMENT dataLine EMPTY>
+<!ATTLIST genericSFNTTable tag CDATA #REQUIRED
+	size CDATA #IMPLIED
+>
+<!ATTLIST dataLine lineNumber CDATA #REQUIRED
+	offset CDATA #REQUIRED
+	hex CDATA #REQUIRED
+	ascii CDATA #IMPLIED
+	unicode CDATA #IMPLIED
+>
+]>
+
+<!--
+
+	Horizontal metrics header for Null the TrueType font
+	Copyright (c) 2012 Grzegorz Rolek
+
+	Fused with ftxdumperfuser build 248
+	FontToolbox.framework build 55
+
+-->
+
+<genericSFNTTable tag="hhea" >
+	<dataLine offset="00000000" hex="0001" /> <!-- Table version major; can't change that. -->
+	<dataLine offset="00000002" hex="0000" /> <!-- Version minor... -->
+	<dataLine offset="00000004" hex="0000" /> <!-- Font's ascent; make it null. -->
+	<dataLine offset="00000006" hex="0000" /> <!-- Descent; null. -->
+	<dataLine offset="00000008" hex="0000" /> <!-- Leading... -->
+	<dataLine offset="0000000A" hex="0000" /> <!-- Max advance; no metrics beyond zero, so legally null. -->
+	<dataLine offset="0000000C" hex="0000" /> <!-- Min left sidebearing; like above. -->
+	<dataLine offset="0000000E" hex="0000" /> <!-- Min right bearing... -->
+	<dataLine offset="00000010" hex="0000" /> <!-- Max horizontal extent... -->
+	<dataLine offset="00000012" hex="0001" /> <!-- Caret slope rise; unfortunately rises a major error on null. -->
+	<dataLine offset="00000014" hex="0000" /> <!-- Caret slope run, null. -->
+	<dataLine offset="00000016" hex="0000" /> <!-- Caret offset... -->
+	<dataLine offset="00000018" hex="0000" /> <!-- Reserved by the spec with all zeros, that's nice. -->
+	<dataLine offset="0000001A" hex="0000" /> <!-- Reserved continued... -->
+	<dataLine offset="0000001C" hex="0000" /> <!-- Reserved still... -->
+	<dataLine offset="0000001E" hex="0000" /> <!-- Reserved... -->
+	<dataLine offset="00000020" hex="0000" /> <!-- Metric data format; current is zero. -->
+	<dataLine offset="00000022" hex="0000" /> <!-- Number of horizontal metrics; make it zero. -->
+</genericSFNTTable>

@@ -1,0 +1,42 @@
+NULL THE TRUETYPE FONT
+
+This font is null. It's the smallest possible TrueType binary still valid
+on OS X and with most of its bytes wiped out. It is used in hard-core font
+production as a base for further compilation.
+
+
+THE STRATEGY
+
+These are the required tables only. Format of each is chosen for the font's
+shortest overall length and each is stripped to a bare minimum. Remaining
+words are wiped out wherever possible. See the dumps for comments on each
+single word in each table.
+
+
+FURTHER HACKING
+
+The source files represent dumps of raw hex data that can be fused back
+by OS X Font Tools. You can, of course, hack the binary itself. In fact,
+this would allow to wipe out some additional bytes, which would otherwise
+be restored by every sane font table fuser.
+
+
+TODO
+
+It would be nice to have it validating on other platforms too, but that
+should rather imply separate binaries to keep things really tight and tidy.
+
+Note that ftxvalidator still spits few warnings, some of them technically
+unjustified. Preventing either type although increases font's size, it
+makes the logs look nicer. It's not yet decided if that should take the
+priority.
+
+
+CREDITS & COPYRIGHT NOTICE
+
+Similar attempt but targeting font detection in Web browsers can be found
+at http://processingjs.nihongoresources.com/the_smallest_font/. By Mike
+Kamermans. Some cracks have been stolen. Hat tip.
+
+Null the TrueType font is a hack by Grzegorz Rolek, 2012. Copyrights apply.
+Use it freely, but please give credit and don't sell nor mass-distribute.
