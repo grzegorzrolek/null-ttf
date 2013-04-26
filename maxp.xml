@@ -37,7 +37,7 @@
 	<dataLine offset="00000008" hex="0001" /> <!-- Max number of contours in non-compound glyph. -->
 	<dataLine offset="0000000A" hex="0000" /> <!-- Max number of points in compound glyph; null. -->
 	<dataLine offset="0000000C" hex="0000" /> <!-- Max number of contours in compound glyph; null. -->
-	<dataLine offset="0000000E" hex="0000" /> <!-- Max number of zones; the spec wants 2, but can be set to null. -->
+	<dataLine offset="0000000E" hex="0002" /> <!-- Max number of zones; could be null, but at the cost of a warning. -->
 	<dataLine offset="00000010" hex="0000" /> <!-- Max number of points used in Twilight Zone; legally null. -->
 	<dataLine offset="00000012" hex="0000" /> <!-- Max number of Storage Area locations; null. -->
 	<dataLine offset="00000014" hex="0000" /> <!-- Max number of function definitions; null. -->
