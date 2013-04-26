@@ -27,6 +27,6 @@
 
 <genericSFNTTable tag="loca">
 	<dataLine offset="00000000" hex="0000" /> <!-- First glyph offset counted in words -->
-	<dataLine offset="00000002" hex="0005" /> <!-- Second glyph offset -->
-	<dataLine offset="00000004" hex="0005" /> <!-- Offset to the end of last glyph; that basically makes it zero length. -->
+	<dataLine offset="00000002" hex="0009" /> <!-- Second glyph offset -->
+	<dataLine offset="00000004" hex="0009" /> <!-- Offset to the end of last glyph; that basically makes it zero length. -->
 </genericSFNTTable>

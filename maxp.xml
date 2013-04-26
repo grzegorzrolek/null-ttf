@@ -21,6 +21,9 @@
 	This is quite a respectable table, particularly the glyphs number value,
 	e.g., fusion of the 'post' table that enumerate glyphs fails on the value mismatch.
 
+	Non-zero countour count seems to always raise a mismatch warning even if set correctly.
+	Probably a bug in the validator.
+
 	Fused with ftxdumperfuser build 248
 	FontToolbox.framework build 55
 
@@ -30,8 +33,8 @@
 	<dataLine offset="00000000" hex="0001" /> <!-- Table version major, stays like so. -->
 	<dataLine offset="00000002" hex="0000" /> <!-- Version minor... -->
 	<dataLine offset="00000004" hex="0002" /> <!-- Number of glyphs; can't be lied, really. -->
-	<dataLine offset="00000006" hex="0000" /> <!-- Max number of points in non-compound glyph; no glyph data, so null. -->
-	<dataLine offset="00000008" hex="0000" /> <!-- Max number of contours in non-compound glyph; still null. -->
+	<dataLine offset="00000006" hex="0001" /> <!-- Max number of points in non-compound glyph. -->
+	<dataLine offset="00000008" hex="0001" /> <!-- Max number of contours in non-compound glyph. -->
 	<dataLine offset="0000000A" hex="0000" /> <!-- Max number of points in compound glyph; null. -->
 	<dataLine offset="0000000C" hex="0000" /> <!-- Max number of contours in compound glyph; null. -->
 	<dataLine offset="0000000E" hex="0000" /> <!-- Max number of zones; the spec wants 2, but can be set to null. -->

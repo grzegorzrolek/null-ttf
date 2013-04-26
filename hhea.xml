@@ -29,7 +29,7 @@
 	<dataLine offset="00000004" hex="0000" /> <!-- Font's ascent; make it null. -->
 	<dataLine offset="00000006" hex="0000" /> <!-- Descent; null. -->
 	<dataLine offset="00000008" hex="0000" /> <!-- Leading... -->
-	<dataLine offset="0000000A" hex="0000" /> <!-- Max advance; no metrics beyond zero, so legally null. -->
+	<dataLine offset="0000000A" hex="0001" /> <!-- Max advance; could be null if there were no metrics beyond zero. -->
 	<dataLine offset="0000000C" hex="0000" /> <!-- Min left sidebearing; like above. -->
 	<dataLine offset="0000000E" hex="0000" /> <!-- Min right bearing... -->
 	<dataLine offset="00000010" hex="0000" /> <!-- Max horizontal extent... -->
@@ -41,5 +41,5 @@
 	<dataLine offset="0000001C" hex="0000" /> <!-- Reserved still... -->
 	<dataLine offset="0000001E" hex="0000" /> <!-- Reserved... -->
 	<dataLine offset="00000020" hex="0000" /> <!-- Metric data format; current is zero. -->
-	<dataLine offset="00000022" hex="0000" /> <!-- Number of horizontal metrics; make it zero. -->
+	<dataLine offset="00000022" hex="0002" /> <!-- Number of metrics; could be zero, but it makes few warnigns. -->
 </genericSFNTTable>

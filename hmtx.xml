@@ -18,7 +18,8 @@
 	Horizontal metrics for Null the TrueType font
 	Copyright (c) 2012 Grzegorz Rolek
 
-	This table basically can't be made any shorter. Four bytes, all null.
+	This table could be four bytes-long, all null, if loaded with no advances, but bearings only.
+	That, however, would rise a few warnigns regarding advances of the two (special) glyphs.
 
 	Fused with ftxdumperfuser build 248
 	FontToolbox.framework build 55
@@ -26,6 +27,8 @@
 -->
 
 <genericSFNTTable tag="hmtx">
-	<dataLine offset="00000000" hex="0000"/> <!-- Sidebearing of the first glyph. -->
-	<dataLine offset="00000002" hex="0000"/> <!-- Sidebearing... -->
+	<dataLine offset="00000000" hex="0001"/> <!-- Advance of the missing character glyph; can't be zero with no warning. -->
+	<dataLine offset="00000002" hex="0000"/> <!-- Left sidebearing of the glyph. -->
+	<dataLine offset="00000004" hex="0000"/> <!-- Advance of the null glyph; legally zero. -->
+	<dataLine offset="00000006" hex="0000"/> <!-- Sidebearing... -->
 </genericSFNTTable>

@@ -20,7 +20,7 @@
 
 	Here's the 'glyf' table with data stream for only one glyph.
 	Glyph definition is glyph description plus glyph data.
-	Description part is required, actual data can be stripped.
+	Description part is required, actual data could be stripped.
  
 	Fused with ftxdumperfuser build 248
 	FontToolbox.framework build 55
@@ -28,9 +28,13 @@
 -->
 
 <genericSFNTTable tag="glyf">
-	<dataLine offset="00000000" hex="0000" /> <!-- Number of contours; zero makes data part disposable. -->
+	<dataLine offset="00000000" hex="0001" /> <!-- Number of contours; zero would make the data part disposable, but with a warning. -->
 	<dataLine offset="00000002" hex="0000" /> <!-- Min X coordinate; part of the description. -->
 	<dataLine offset="00000004" hex="0000" /> <!-- Min Y coordinate... -->
 	<dataLine offset="00000006" hex="0000" /> <!-- Max X and... -->
-	<dataLine offset="00000008" hex="0000" /> <!-- Max Y... -->
+	<dataLine offset="00000008" hex="0000" /> <!-- Max Y...; end of description, data part follows. -->
+	<dataLine offset="0000000A" hex="0000" /> <!-- Index of the last point of the contour. -->
+	<dataLine offset="0000000C" hex="0000" /> <!-- Length of instructions. -->
+	<dataLine offset="0000000E" hex="6000" /> <!-- Flags (first byte) that make coordinates byte-long each, followed by the X and... -->
+	<dataLine offset="00000010" hex="0000" /> <!-- Point's Y coordinate plus the table's zero-padding. -->
 </genericSFNTTable>
