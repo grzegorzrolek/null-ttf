@@ -16,11 +16,12 @@
 <!--
 
 	Character mapping for Null the TrueType font
-	Copyright (c) 2012 Grzegorz Rolek
+	Copyright (c) 2012, 2014 Grzegorz Rolek
 
 	Normally, the 'cmap' subtable format 0 should have 256 single-byte records,
-	but apparently OS X assumes standard mapping and those two are enough.
-	Still, the second shortest table format 6 would have been four bytes longer.
+	but OS X apparently assumes a standard mapping and two are sufficient.
+	Moreover, format zero makes the byte pattern fortunate enough to allow for
+	a little dirty hack of subtable header overlaid onto the offset entry.
 
 	Fused with ftxdumperfuser build 248
 	FontToolbox.framework build 55
@@ -32,10 +33,10 @@
 	<dataLine offset="00000002" hex="0001" /> <!-- Number of subtables; nothing to change either. -->
 	<dataLine offset="00000004" hex="0000" /> <!-- Platform code for the subtable: Unicode -->
 	<dataLine offset="00000006" hex="0000" /> <!-- Platform encoding: Default; not recommended, but look at all those zeros. -->
-	<dataLine offset="00000008" hex="0000" /> <!-- Offset to the subtable's mapping; stays as it is. -->
-	<dataLine offset="0000000A" hex="000C" /> <!-- Offset continued... -->
-	<dataLine offset="0000000C" hex="0000" /> <!-- Subtable format; see above for details. -->
-	<dataLine offset="0000000E" hex="0008" /> <!-- Subtable length; can't chage that. -->
-	<dataLine offset="00000010" hex="0000" /> <!-- Encoding language; this can be null. -->
-	<dataLine offset="00000012" hex="0000" /> <!-- Two mapping records; make it all go to glyph zero. -->
+	<dataLine offset="00000008" hex="0000" /> <!-- First part of the offset to subtable's data; can't quite cheat at it... -->
+	                                          <!-- ...but it can be reused as the subtable's format. -->
+	<dataLine offset="0000000A" hex="0008" /> <!-- The trick is, subtable is offset so that it overlays the offset entry itself... -->
+	                                          <!-- ...thus reuses it as its own format and length header entries. -->
+	<dataLine offset="0000000C" hex="0000" /> <!-- Language for the subtable; this can be null. -->
+	<dataLine offset="0000000E" hex="0000" /> <!-- Two mapping records; make it all go to glyph zero. -->
 </genericSFNTTable>
